@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/help"
+        android:title="@string/help">
+
+    </item>
+
+    <item android:id="@+id/pizza"
+        android:title="@string/ginos"
+        android:orderInCategory="1">
+
+    </item>
+
+    <item android:id="@+id/pizza2"
+        android:title="@string/dominos"
+        android:orderInCategory="2">
+
+    </item>
+
+    <item android:id="@+id/pizza3"
+        android:title="@string/pizzapizza"
+        android:orderInCategory="3">
+
+    </item>
+
+    <item android:id="@+id/name"
+        android:title="@string/name"
+        android:orderInCategory="4">
+
+    </item>
+</menu>
