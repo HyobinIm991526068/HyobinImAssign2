@@ -8,13 +8,14 @@
 
     <RadioGroup
         android:id="@+id/hyobinPizzaStores"
-        android:layout_width="241dp"
-        android:layout_height="277dp"
+        android:layout_width="159dp"
+        android:layout_height="264dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.317"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518">
+        app:layout_constraintVertical_bias="0.509">
 
         <RadioButton
             android:id="@+id/hyobinGinos"
@@ -50,15 +51,39 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="85dp"
-        android:layout_height="81dp"
+        android:id="@+id/hyobinImgGinos"
+        android:layout_width="56dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintHorizontal_bias="0.763"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366"
+        app:layout_constraintVertical_bias="0.309"
         app:srcCompat="@drawable/ginos" />
+
+    <ImageView
+        android:id="@+id/hyobinImgDominos"
+        android:layout_width="56dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.405"
+        app:srcCompat="@drawable/dominos" />
+
+    <ImageView
+        android:id="@+id/hyobinImgPizzaPizza"
+        android:layout_width="56dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/pizzapizza" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

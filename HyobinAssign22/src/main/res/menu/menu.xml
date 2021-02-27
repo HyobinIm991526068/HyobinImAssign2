@@ -6,20 +6,8 @@
     </item>
 
     <item android:id="@+id/pizza"
-        android:title="@string/ginos"
+        android:title="Pizza"
         android:orderInCategory="1">
-
-    </item>
-
-    <item android:id="@+id/pizza2"
-        android:title="@string/dominos"
-        android:orderInCategory="2">
-
-    </item>
-
-    <item android:id="@+id/pizza3"
-        android:title="@string/pizzapizza"
-        android:orderInCategory="3">
 
     </item>
 
