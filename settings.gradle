@@ -1,0 +1,2 @@
+include ':HyobinAssign22'
+rootProject.name = "HyobinAssign2"
