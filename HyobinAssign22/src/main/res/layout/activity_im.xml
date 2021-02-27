@@ -6,38 +6,245 @@
     android:layout_height="match_parent"
     tools:context=".ImActivity">
 
-    <TextView
-        android:id="@+id/hyobinOrderTitle"
-        android:layout_width="112dp"
-        android:layout_height="52dp"
-        android:text="@string/orderTitle"
+    <RadioGroup
+        android:id="@+id/hyobinCrust"
+        android:layout_width="114dp"
+        android:layout_height="121dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.45">
+
+        <RadioButton
+            android:id="@+id/hyobinRegCrust"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/reg_crust"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/hyobinThickCrust"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/thick_crust"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/hyobinCheeseCrust"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="@string/cheese_crust"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/hyobinPizzaSize"
+        android:layout_width="127dp"
+        android:layout_height="162dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483">
+
+        <RadioButton
+            android:id="@+id/hyobinSmall"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/small"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/hyobinMedium"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/medium"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/hyobinLarge"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/large"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/hyobinXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@string/x_large"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/hyobinOrderTitle"
+        android:layout_width="163dp"
+        android:layout_height="44dp"
+        android:text="@string/orderTitle"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.058" />
 
     <TextView
         android:id="@+id/hyobinStore"
-        android:layout_width="93dp"
-        android:layout_height="73dp"
+        android:layout_width="152dp"
+        android:layout_height="56dp"
         android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <ImageView
         android:id="@+id/hyobinStoreImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="89dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.716"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208"
+        app:layout_constraintVertical_bias="0.169"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/hyobinCrustType"
+        android:layout_width="71dp"
+        android:layout_height="21dp"
+        android:text="@string/type"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <TextView
+        android:id="@+id/hyobinSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/size"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.738"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <TextView
+        android:id="@+id/hyobinToppings"
+        android:layout_width="71dp"
+        android:layout_height="21dp"
+        android:text="@string/toppings"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.638" />
+
+    <CheckBox
+        android:id="@+id/hyobinOlives"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:text="@string/olives"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704" />
+
+    <CheckBox
+        android:id="@+id/hyobinPepperoni"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:text="@string/pepperoni"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <CheckBox
+        android:id="@+id/hyobinMushroom"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:text="@string/mushroom"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
+
+    <CheckBox
+        android:id="@+id/hyobinBacon"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:text="@string/bacon"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704" />
+
+    <CheckBox
+        android:id="@+id/hyobinPineapple"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:text="@string/pineapple"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <CheckBox
+        android:id="@+id/hyobinCheese"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:text="@string/cheese"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
