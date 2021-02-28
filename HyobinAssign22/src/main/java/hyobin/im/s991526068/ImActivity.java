@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +23,10 @@ import java.util.ArrayList;
 
 public class ImActivity extends AppCompatActivity {
 
+    public static final String crust = "";
+    public static final String size = "";
     final Context context = this;
+
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
@@ -34,6 +38,7 @@ public class ImActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
         Intent intent = null;
+
 
         //Handle item selection
         switch (item.getItemId()){
@@ -52,7 +57,6 @@ public class ImActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im);
-
         Intent intent = getIntent();
         Bundle extras = getIntent().getExtras();
         String message = intent.getStringExtra(HyobinActivity.store);
@@ -67,21 +71,54 @@ public class ImActivity extends AppCompatActivity {
 
     public void paymentPage(View view){
         Intent intent = null;
+        Bundle extras = new Bundle();
         String message = "";
+        RadioButton selectedRadioButton;
+        RadioButton selectedRadioButton2;
         RadioGroup radioGroupCrust = (RadioGroup) findViewById(R.id.hyobinCrust);
         RadioGroup radioGroupSize = (RadioGroup) findViewById(R.id.hyobinPizzaSize);
-        boolean checked = ((CheckBox) view).isChecked();
+        CheckBox cbBacon = (CheckBox) findViewById(R.id.hyobinBacon);
+        CheckBox cbCheese = (CheckBox) findViewById(R.id.hyobinCheese);
+        CheckBox cbMushroom = (CheckBox) findViewById(R.id.hyobinMushroom);
+        CheckBox cbPepperoni = (CheckBox) findViewById(R.id.hyobinPepperoni);
+        CheckBox cbOlives = (CheckBox) findViewById(R.id.hyobinOlives);
+        CheckBox cbPineapple = (CheckBox) findViewById(R.id.hyobinPineapple);
         ArrayList<String> toppings = new ArrayList<String>();
 
-        if (radioGroupCrust.getCheckedRadioButtonId() == -1 ||
-                radioGroupSize.getCheckedRadioButtonId() == -1 ||
-                toppings == null) {
+        //check which toppings are selected and put into arraylist
+
+        if (cbBacon.isChecked()) {
+            toppings.add("bacon");
+        }
+        if (cbCheese.isChecked()) {
+            toppings.add("extra cheese");
+        }
+        if (cbMushroom.isChecked()) {
+            toppings.add("mushroom");
+        }
+        if (cbPepperoni.isChecked()) {
+            toppings.add("pepperoni");
+        }
+        if (cbOlives.isChecked()) {
+            toppings.add("olives");
+        }
+        if (cbPineapple.isChecked()) {
+            toppings.add("pineapple");
+        }
+
+
+
+
+        //checks to see if radiobuttons are selected and if toppings list is empty
+        if (radioGroupCrust.getCheckedRadioButtonId() == -1 &&
+                radioGroupSize.getCheckedRadioButtonId() == -1 &&
+                (toppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick crust, pizza size and at least 1 topping");
+            alertDialogBuilder.setTitle("Please pick your crust type, pizza size and at least 1 topping");
             alertDialogBuilder
-                    .setMessage("Click yes to exit")
+                    .setMessage("Click OK to exit")
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id){
                             Toast.makeText(getApplicationContext(), "Please fill out form",
                                     Toast.LENGTH_LONG).show();
@@ -92,48 +129,127 @@ public class ImActivity extends AppCompatActivity {
 
             // show it
             alertDialog.show();
+        } else if (radioGroupSize.getCheckedRadioButtonId() == -1 && (toppings.isEmpty())) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setTitle("Please pick your pizza size and at least 1 topping");
+            alertDialogBuilder
+                    .setMessage("Click OK to exit")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id){
+                            Toast.makeText(getApplicationContext(), "Please fill out form",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        } else if (radioGroupCrust.getCheckedRadioButtonId() == -1 && (toppings.isEmpty())) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setTitle("Please pick your crust type and at least 1 topping");
+            alertDialogBuilder
+                    .setMessage("Click OK to exit")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Please fill out form",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        } else if (radioGroupCrust.getCheckedRadioButtonId() == -1 &&
+                radioGroupSize.getCheckedRadioButtonId() == -1) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setTitle("Please pick your crust type and pizza size");
+            alertDialogBuilder
+                    .setMessage("Click OK to exit")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Please fill out form",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+
+        }else if (radioGroupCrust.getCheckedRadioButtonId() == -1) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setTitle("Please pick your crust type");
+            alertDialogBuilder
+                    .setMessage("Click OK to exit")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Please fill out form",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        } else if (radioGroupSize.getCheckedRadioButtonId() == -1) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setTitle("Please pick your pizza size");
+            alertDialogBuilder
+                    .setMessage("Click OK to exit")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Please fill out form",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        } else if ((toppings.isEmpty())) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            alertDialogBuilder.setTitle("Please pick at least 1 topping");
+            alertDialogBuilder
+                    .setMessage("Click OK to exit")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(getApplicationContext(), "Please fill out form",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        } else {
+            intent = new Intent(this, ImActivity2.class);
+            int selectedRadioButtonCrustId = radioGroupCrust.getCheckedRadioButtonId();
+            selectedRadioButton = findViewById(selectedRadioButtonCrustId);
+            String selectedRbCrustText = selectedRadioButton.getText().toString();
+
+            intent.putExtra(crust, selectedRbCrustText);
+
+            int selectedRadioButtonSizeId = radioGroupSize.getCheckedRadioButtonId();
+            selectedRadioButton2 = findViewById(selectedRadioButtonSizeId);
+            String selectedRbSizeText = selectedRadioButton2.getText().toString();
+
+            intent.putExtra(size, selectedRbSizeText);
+
+            intent.putExtra("toppings", toppings);
+            startActivity(intent);
         }
 
-        //check which toppings are checked
-        switch(view.getId()) {
-            case R.id.hyobinBacon: {
-                if (checked){
-                    toppings.add("Bacon");
-                }
-                break;
-            }
-            case R.id.hyobinCheese: {
-                if (checked){
-                    toppings.add("Extra Cheese");
-                }
-                break;
-            }
-            case R.id.hyobinPepperoni: {
-                if (checked){
-                    toppings.add("Pepperoni");
-                }
-                break;
-            }
-            case R.id.hyobinMushroom: {
-                if (checked){
-                    toppings.add("Mushroom");
-                }
-                break;
-            }
-            case R.id.hyobinOlives: {
-                if (checked){
-                    toppings.add("Olives");
-                }
-                break;
-            }
-            case R.id.hyobinPineapple:{
-                if (checked){
-                    toppings.add("Pineapple");
-                }
-            }
-        }
-        intent = new Intent(this, ImActivity2.class);
-        intent.putExtra("toppings", toppings);
-        startActivity(intent);
     }
 }

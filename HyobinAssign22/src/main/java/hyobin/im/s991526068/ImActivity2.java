@@ -14,16 +14,20 @@ public class ImActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im2);
-
         Intent intent = getIntent();
-        Bundle extras = getIntent().getExtras();
+
+        String message = intent.getStringExtra(ImActivity.crust);
+        String message2 = intent.getStringExtra(ImActivity.size);
+
+
         ArrayList<String> toppings = (ArrayList<String>)getIntent().getSerializableExtra("toppings");
+        TextView textView = findViewById(R.id.hyobinFinalToppings);
+        textView.setText(String.valueOf(toppings));
 
-        TextView textView = new TextView(this);
-        for (int i = 0; i<toppings.size();i++){
-            textView.append(toppings.get(i));
-            textView.append("\n");
-        }
+        TextView textView2 = findViewById(R.id.hyobinFinalCrustType);
+        textView2.setText(message);
 
+        TextView textView3 = findViewById(R.id.hyobinFinalPizzaSize);
+        textView3.setText(message2);
     }
 }

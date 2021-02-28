@@ -83,22 +83,21 @@ public class HyobinActivity extends AppCompatActivity {
                         intent = new Intent(this, ImActivity.class);
                         TextView textView = (TextView) findViewById(R.id.hyobinGinos);
                         message = textView.getText().toString();
-                        intent.putExtra(store, message);
                         intent.putExtra("resourceInt", R.drawable.ginos);
                     } else if (radioGroup.getCheckedRadioButtonId() == R.id.hyobinDominos) {
                         intent = new Intent(this, ImActivity.class);
                         TextView textView = (TextView) findViewById(R.id.hyobinDominos);
                         message = textView.getText().toString();
-                        intent.putExtra(store, message);
                         intent.putExtra("resourceInt", R.drawable.dominos);
                     } else if (radioGroup.getCheckedRadioButtonId() == R.id.hyobinPizzaPizza) {
                         intent = new Intent(this, ImActivity.class);
                         TextView textView = (TextView) findViewById(R.id.hyobinPizzaPizza);
                         message = textView.getText().toString();
-                        intent.putExtra(store, message);
                         intent.putExtra("resourceInt", R.drawable.pizzapizza);
                     }
             }
+
+            intent.putExtra(store, message);
             startActivity(intent);
         }
     }
