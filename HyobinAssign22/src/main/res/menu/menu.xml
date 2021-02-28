@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Hyobin Im s991526068
+    assignment#2 - pizza ordering app-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/help"
+        app:showAsAction="never"
         android:title="@string/help">
 
     </item>
 
     <item android:id="@+id/pizza"
-        android:title="Pizza"
+        android:title=""
+        app:showAsAction="ifRoom"
         android:orderInCategory="1">
 
     </item>
 
     <item android:id="@+id/name"
+        app:showAsAction="always"
         android:title="@string/name"
         android:orderInCategory="2">
 

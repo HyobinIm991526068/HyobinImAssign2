@@ -1,20 +1,62 @@
+//Hyobin Im s991526068
+//This is assignment #2 - pizza ordering application
 package hyobin.im.s991526068;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ImActivity3 extends AppCompatActivity {
 
+    final Context context = this;
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        Intent intent = null;
+
+        //Handle item selection
+        switch (item.getItemId()){
+            case R.id.help:
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(getString(R.string.site_label)));
+                startActivity(intent);
+                break;
+            case R.id.pizza:
+
+
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im3);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
 
         String message = intent.getStringExtra("crust");
@@ -51,4 +93,27 @@ public class ImActivity3 extends AppCompatActivity {
         textView8.setText(message8);
 
     }
+
+    public void checkout (View view){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setTitle(R.string.checkout_alert_title);
+        alertDialogBuilder
+                .setMessage("Click OK to exit")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(context, HyobinActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        context.startActivity(intent);
+                    }
+                });
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
+
+    }
 }
+

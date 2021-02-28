@@ -1,3 +1,5 @@
+//Hyobin Im s991526068
+//This is assignment #2 - pizza ordering application
 package hyobin.im.s991526068;
 
 import androidx.appcompat.app.AlertDialog;
@@ -23,17 +25,40 @@ public class HyobinActivity extends AppCompatActivity {
 
     public static final String store = "";
     final Context context = this;
+    MenuItem mi;
+    String selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.hyobinPizzaStores);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.hyobinGinos){
+                    mi.setIcon(R.drawable.ginos);
+                    selected = "ginos";
+                } else if (checkedId == R.id.hyobinDominos){
+                    mi.setIcon(R.drawable.dominos);
+                    selected = "dominos";
+                } else if (checkedId == R.id.hyobinPizzaPizza){
+                    mi.setIcon(R.drawable.pizzapizza);
+                    selected = "pizzapizza";
+                }
+            }
+        });
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        mi = menu.findItem(R.id.pizza);
         return true;
     }
 
@@ -47,6 +72,22 @@ public class HyobinActivity extends AppCompatActivity {
                         Uri.parse(getString(R.string.site_label)));
                 startActivity(intent);
                 break;
+            case R.id.pizza:
+                if (selected == "ginos"){
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ginospizza.ca"));
+                    startActivity(intent);
+                }else if (selected == "dominos"){
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dominos.ca"));
+                    startActivity(intent);
+                }else if (selected ==  "pizzapizza"){
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.pizzapizza.ca"));
+                    startActivity(intent);
+                }
+                break;
+
+            case R.id.name:
+
+                break;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -59,9 +100,10 @@ public class HyobinActivity extends AppCompatActivity {
         String message = "";
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.hyobinPizzaStores);
 
+
         if (radioGroup.getCheckedRadioButtonId() == -1){
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Select store");
+            alertDialogBuilder.setTitle(R.string.alert_home);
             alertDialogBuilder
                     .setMessage("Click yes to exit")
                     .setCancelable(false)

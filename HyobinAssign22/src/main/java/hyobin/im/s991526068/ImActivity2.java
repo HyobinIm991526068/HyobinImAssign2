@@ -1,9 +1,16 @@
+//Hyobin Im s991526068
+//This is assignment #2 - pizza ordering application
 package hyobin.im.s991526068;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,9 +27,39 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
     Spinner spinnerProvince;
 
     @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        Intent intent = null;
+
+        //Handle item selection
+        switch (item.getItemId()){
+            case R.id.help:
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(getString(R.string.site_label)));
+                startActivity(intent);
+                break;
+            case R.id.pizza:
+
+
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im2);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
 
         String message = intent.getStringExtra("crust");
@@ -93,13 +130,13 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
     public boolean isName(String name){
         EditText nameEditText = (EditText)findViewById(R.id.hyobinName);
         if(name.length() == 0){
-            nameEditText.setError("This Field Cannot Be Blank");
+            nameEditText.setError(getString(R.string.name_error));
             return false;
         } else if (name.length() < 3 || name.length() > 20){
-            nameEditText.setError("Name should be between 3-20 characters");
+            nameEditText.setError(getString(R.string.name_error2));
             return false;
         } else if (!name.matches("[a-zA-Z]+")){
-            nameEditText.setError("Enter only alphabetical characters");
+            nameEditText.setError(getString(R.string.name_error3));
             return false;
         }else {
             return true;
@@ -109,7 +146,7 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
     public boolean isAddress(String address){
         EditText addressEditText = (EditText)findViewById(R.id.hyobinAddress);
         if (address.length() == 0){
-            addressEditText.setError("This Field Cannot Be Blank");
+            addressEditText.setError(getString(R.string.address_error));
             return false;
         } else {
             return true;
@@ -119,13 +156,13 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
     public boolean isPhoneNumber(String phoneNumber){
         EditText phoneNumberEditText = (EditText)findViewById(R.id.hyobinPhoneNumber);
         if(phoneNumber.length() == 0){
-            phoneNumberEditText.setError("This Field Cannot Be Blank");
+            phoneNumberEditText.setError(getString(R.string.number_error));
             return false;
         } else if (phoneNumber.length() != 10){
-            phoneNumberEditText.setError("This Field should be 10 digits");
+            phoneNumberEditText.setError(getString(R.string.number_error2));
             return false;
         } else if (!phoneNumber.matches("^[0-9]*$")){
-            phoneNumberEditText.setError("This Field should be numbers only");
+            phoneNumberEditText.setError(getString(R.string.number_error3));
             return false;
         } else {
             return true;
@@ -135,13 +172,13 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
     public boolean isCreditNumber(String creditCard){
         EditText creditCardEditText = (EditText)findViewById(R.id.hyobinCreditCard);
         if(creditCard.length() == 0){
-            creditCardEditText.setError("This Field Cannot Be Blank");
+            creditCardEditText.setError(getString(R.string.card_error));
             return false;
         } else if (creditCard.length() != 16){
-            creditCardEditText.setError("Credit card is 16 digits");
+            creditCardEditText.setError(getString(R.string.card_error2));
             return false;
         } else if (!creditCard.matches("^[0-9]*$")){
-            creditCardEditText.setError("Credit card should be numbers only");
+            creditCardEditText.setError(getString(R.string.card_error3));
             return false;
         } else {
             return true;

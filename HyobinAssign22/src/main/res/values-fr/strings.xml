@@ -1,3 +1,81 @@
+<!-- Hyobin Im s991526068
+    assignment#2 - pizza ordering app-->
 <resources>
-    <string name="app_name">HyobinAssign2</string>
+    <string name="app_name">Hyobin Im s991526068</string>
+    <string name="help">Aider</string>
+    <string name="name">Hyobin</string>
+    <string name="site_label">https://www.google.ca</string>
+    <string name="hyobinRGinos">Ginos Pizza</string>
+    <string name="hyobinRDominos">Dominos Pizza</string>
+    <string name="hyobinRPizzaPizza">Pizza Pizza</string>
+    <string name="button_next">Suivante</string>
+    <string name="orderTitle">Commander une pizza</string>
+    <string name="reg_crust">Croûte Régulière</string>
+    <string name="thick_crust">Croûte épaisse</string>
+    <string name="cheese_crust">Croûte de fromage</string>
+    <string name="small">Petite</string>
+    <string name="medium">Moyen</string>
+    <string name="large">Grande</string>
+    <string name="x_large">Extra Large</string>
+    <string name="type">Type de croûte</string>
+    <string name="size">Taille de la pizza</string>
+    <string name="toppings">Garnitures</string>
+    <string name="olives">Olives</string>
+    <string name="cheese">Fromage supplémentaire</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="mushroom">Champignon</string>
+    <string name="bacon">Lard</string>
+    <string name="pineapple">Lananas</string>
+    <string name="order_button">Commander</string>
+    <string name="label_crust">Type de croûte</string>
+    <string name="label_size">Taille</string>
+    <string name="label_toppings">Garnitures</string>
+    <string name="checkout_title">Page de paiement</string>
+    <string name="checkout_crust">Croûte choisie</string>
+    <string name="checkout_size">Taille choisie</string>
+    <string name="checkout_toppings">Garnitures Choisies</string>
+    <string name="checkout_name">Nom</string>
+    <string name="checkout_address">Adresse</string>
+    <string name="checkout_phoneNumber">Numéro de téléphone</string>
+    <string name="checkout_creditCard">Carte de crédit</string>
+    <string name="checkout_province">Province</string>
+    <string name="checkout_button">Vérifier</string>
+    <string name="alert_home">Sélectionnez un magasin</string>
+    <string name="topping_bacon">lard</string>
+    <string name="topping_cheese">fromage supplémentaire</string>
+    <string name="topping_mushroom">champignon</string>
+    <string name="topping_pepperoni">pepperoni</string>
+    <string name="topping_olives">olives</string>
+    <string name="topping_pineapple">lananas</string>
+    <string name="alert_order1">Veuillez choisir votre type de croûte, la taille de la pizza et au moins 1 garniture</string>
+    <string name="alert_order2">Veuillez choisir la taille de votre pizza et au moins 1 garniture</string>
+    <string name="alert_order3">Veuillez choisir votre type de croûte et au moins 1 garniture</string>
+    <string name="alert_order4">Veuillez choisir votre type de croûte et la taille de votre pizza</string>
+    <string name="alert_order5">Veuillez choisir votre type de croûte</string>
+    <string name="alert_order6">Veuillez choisir la taille de votre pizza</string>
+    <string name="alert_order7">Veuillez choisir au moins 1 garniture</string>
+    <string name="name_error">Ce champ ne peut être vide</string>
+    <string name="name_error2">Le nom doit comprendre entre 3 et 20 caractères</string>
+    <string name="name_error3">Saisissez uniquement des caractères alphabétiques</string>
+    <string name="address_error">Ce champ ne peut être vide</string>
+    <string name="number_error">Ce champ ne peut être vide</string>
+    <string name="number_error2">Ce champ doit comporter 10 chiffres</string>
+    <string name="number_error3">Ce champ doit être composé uniquement de chiffres</string>
+    <string name="card_error">Ce champ ne peut être vide</string>
+    <string name="card_error2">La carte de crédit comporte 16 chiffres</string>
+    <string name="card_error3">La carte de crédit doit être composée uniquement de chiffres</string>
+    <string name="checkout_alert_title">Votre commande est terminée!</string>
+    <string-array name="provinces">
+        <item>British Columbia</item>
+        <item>Alberta</item>
+        <item>Saskatchwan</item>
+        <item>Manitoba</item>
+        <item>Ontario</item>
+        <item>Quebec</item>
+        <item>Newfoundland</item>
+        <item>New Brunswick</item>
+        <item>Nova Scotia</item>
+        <item>Prince Edward Island</item>
+    </string-array>
+
 </resources>

@@ -1,3 +1,5 @@
+<!-- Hyobin Im s991526068
+    assignment#2 - pizza ordering app-->
 <resources>
     <string name="app_name">Hyobin Im s991526068</string>
     <string name="help">Help</string>
@@ -28,6 +30,41 @@
     <string name="label_crust">Crust Type</string>
     <string name="label_size">Size</string>
     <string name="label_toppings">Toppings</string>
+    <string name="checkout_title">Checkout Page</string>
+    <string name="checkout_crust">Crust Chosen</string>
+    <string name="checkout_size">Size Chosen</string>
+    <string name="checkout_toppings">Toppings Chosen</string>
+    <string name="checkout_name">Name</string>
+    <string name="checkout_address">Address</string>
+    <string name="checkout_phoneNumber">Phone Number</string>
+    <string name="checkout_creditCard">Credit Card</string>
+    <string name="checkout_province">Province</string>
+    <string name="checkout_button">Checkout</string>
+    <string name="alert_home">Select store</string>
+    <string name="topping_bacon">bacon</string>
+    <string name="topping_cheese">extra cheese</string>
+    <string name="topping_mushroom">mushroom</string>
+    <string name="topping_pepperoni">pepperoni</string>
+    <string name="topping_olives">olives</string>
+    <string name="topping_pineapple">pineapple</string>
+    <string name="alert_order1">Please pick your crust type, pizza size and at least 1 topping</string>
+    <string name="alert_order2">Please pick your pizza size and at least 1 topping</string>
+    <string name="alert_order3">Please pick your crust type and at least 1 topping</string>
+    <string name="alert_order4">Please pick your crust type and pizza size</string>
+    <string name="alert_order5">Please pick your crust type</string>
+    <string name="alert_order6">Please pick your pizza size</string>
+    <string name="alert_order7">Please pick at least 1 topping</string>
+    <string name="name_error">This Field Cannot Be Blank</string>
+    <string name="name_error2">Name should be between 3-20 characters</string>
+    <string name="name_error3">Enter only alphabetical characters</string>
+    <string name="address_error">This Field Cannot Be Blank</string>
+    <string name="number_error">This Field Cannot Be Blank</string>
+    <string name="number_error2">This Field should be 10 digits</string>
+    <string name="number_error3">This Field should be numbers only</string>
+    <string name="card_error">This Field Cannot Be Blank</string>
+    <string name="card_error2">Credit card is 16 digits</string>
+    <string name="card_error3">Credit card should be numbers only</string>
+    <string name="checkout_alert_title">Your order is complete!</string>
     <string-array name="provinces">
         <item>British Columbia</item>
         <item>Alberta</item>

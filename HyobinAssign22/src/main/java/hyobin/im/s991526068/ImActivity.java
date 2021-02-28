@@ -1,8 +1,11 @@
+//Hyobin Im s991526068
+//This is assignment #2 - pizza ordering application
 package hyobin.im.s991526068;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,13 +40,16 @@ public class ImActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected (MenuItem item) {
         Intent intent = null;
 
-
         //Handle item selection
         switch (item.getItemId()){
             case R.id.help:
                 intent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse(getString(R.string.site_label)));
                 startActivity(intent);
+                break;
+            case R.id.pizza:
+
+
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -53,8 +59,12 @@ public class ImActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         Bundle extras = getIntent().getExtras();
         String message = intent.getStringExtra(HyobinActivity.store);
@@ -66,6 +76,7 @@ public class ImActivity extends AppCompatActivity {
         imgView.setImageResource(res);
 
     }
+
 
     public void paymentPage(View view){
         Intent intent = null;
@@ -86,22 +97,22 @@ public class ImActivity extends AppCompatActivity {
         //check which toppings are selected and put into arraylist
 
         if (cbBacon.isChecked()) {
-            selectedToppings.add("bacon");
+            selectedToppings.add(getString(R.string.topping_bacon));
         }
         if (cbCheese.isChecked()) {
-            selectedToppings.add("extra cheese");
+            selectedToppings.add(getString(R.string.topping_cheese));
         }
         if (cbMushroom.isChecked()) {
-            selectedToppings.add("mushroom");
+            selectedToppings.add(getString(R.string.topping_mushroom));
         }
         if (cbPepperoni.isChecked()) {
-            selectedToppings.add("pepperoni");
+            selectedToppings.add(getString(R.string.topping_pepperoni));
         }
         if (cbOlives.isChecked()) {
-            selectedToppings.add("olives");
+            selectedToppings.add(getString(R.string.topping_olives));
         }
         if (cbPineapple.isChecked()) {
-            selectedToppings.add("pineapple");
+            selectedToppings.add(getString(R.string.topping_pineapple));
         }
 
         //checks to see if radiobuttons are selected and if toppings list is empty
@@ -109,7 +120,7 @@ public class ImActivity extends AppCompatActivity {
                 radioGroupSize.getCheckedRadioButtonId() == -1 &&
                 (selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick your crust type, pizza size and at least 1 topping");
+            alertDialogBuilder.setTitle(R.string.alert_order1);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
@@ -126,7 +137,7 @@ public class ImActivity extends AppCompatActivity {
             alertDialog.show();
         } else if (radioGroupSize.getCheckedRadioButtonId() == -1 && (selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick your pizza size and at least 1 topping");
+            alertDialogBuilder.setTitle(R.string.alert_order2);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
@@ -143,7 +154,7 @@ public class ImActivity extends AppCompatActivity {
             alertDialog.show();
         } else if (radioGroupCrust.getCheckedRadioButtonId() == -1 && (selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick your crust type and at least 1 topping");
+            alertDialogBuilder.setTitle(R.string.alert_order3);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
@@ -161,7 +172,7 @@ public class ImActivity extends AppCompatActivity {
         } else if (radioGroupCrust.getCheckedRadioButtonId() == -1 &&
                 radioGroupSize.getCheckedRadioButtonId() == -1) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick your crust type and pizza size");
+            alertDialogBuilder.setTitle(R.string.alert_order4);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
@@ -179,7 +190,7 @@ public class ImActivity extends AppCompatActivity {
 
         }else if (radioGroupCrust.getCheckedRadioButtonId() == -1) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick your crust type");
+            alertDialogBuilder.setTitle(R.string.alert_order5);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
@@ -196,7 +207,7 @@ public class ImActivity extends AppCompatActivity {
             alertDialog.show();
         } else if (radioGroupSize.getCheckedRadioButtonId() == -1) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick your pizza size");
+            alertDialogBuilder.setTitle(R.string.alert_order6);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
@@ -213,7 +224,7 @@ public class ImActivity extends AppCompatActivity {
             alertDialog.show();
         } else if ((selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            alertDialogBuilder.setTitle("Please pick at least 1 topping");
+            alertDialogBuilder.setTitle(R.string.alert_order7);
             alertDialogBuilder
                     .setMessage("Click OK to exit")
                     .setCancelable(false)
