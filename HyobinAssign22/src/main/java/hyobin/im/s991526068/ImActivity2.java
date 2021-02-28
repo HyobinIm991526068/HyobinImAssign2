@@ -26,8 +26,8 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
         setContentView(R.layout.activity_im2);
         Intent intent = getIntent();
 
-        String message = intent.getStringExtra(ImActivity.crust);
-        String message2 = intent.getStringExtra(ImActivity.size);
+        String message = intent.getStringExtra("crust");
+        String message2 = intent.getStringExtra("size");
 
 
         ArrayList<String> toppings = (ArrayList<String>)getIntent().getSerializableExtra("toppings");
@@ -51,37 +51,95 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long wee){
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        String selected = parent.getItemAtPosition(position).toString();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        //do nothing
+    }
+
+    public void checkoutPage(View view) {
+        Intent intent = null;
+        EditText nameEditText = (EditText)findViewById(R.id.hyobinName);
+        EditText addressEditText = (EditText)findViewById(R.id.hyobinAddress);
+        EditText phoneNumberEditText = (EditText)findViewById(R.id.hyobinPhoneNumber);
+        EditText creditCardEditText = (EditText)findViewById(R.id.hyobinCreditCard);
+        final String name = nameEditText.getText().toString();
+        final String address = addressEditText.getText().toString();
+        final String phoneNumber = phoneNumberEditText.getText().toString();
+        final String creditCard = creditCardEditText.getText().toString();
+
+        if (isName(name) && isAddress(address) &&
+                isPhoneNumber(phoneNumber) && isCreditNumber(creditCard)){
+            intent = new Intent(this, ImActivity3.class);
+            intent.putExtra("name", name);
+            intent.putExtra("address", address);
+            intent.putExtra("phoneNumber", phoneNumber);
+            intent.putExtra("creditCard", creditCard);
+            startActivity(intent);
+        }
 
     }
 
-    public void paymentPage(View view) {
-        EditText name = (EditText)findViewById(R.id.hyobinName);
-        EditText address = (EditText)findViewById(R.id.hyobinAddress);
-        EditText phoneNumber = (EditText)findViewById(R.id.hyobinPhoneNumber);
-        EditText creditCard = (EditText)findViewById(R.id.hyobinCreditCard);
-
-        if(name.getText().toString().trim().equalsIgnoreCase("")){
-            name.setError("This Field Cannot Be Blank");
-        }
-
-        if(address.getText().toString().trim().equalsIgnoreCase("")){
-            address.setError("This Field Cannot Be Blank");
-        }
-
-        if(phoneNumber.getText().toString().trim().equalsIgnoreCase("")){
-            phoneNumber.setError("This Field Cannot Be Blank");
-        }
-
-        if(creditCard.getText().toString().trim().equalsIgnoreCase("")){
-            creditCard.setError("This Field Cannot Be Blank");
+    public boolean isName(String name){
+        EditText nameEditText = (EditText)findViewById(R.id.hyobinName);
+        if(name.length() == 0){
+            nameEditText.setError("This Field Cannot Be Blank");
+            return false;
+        } else if (name.length() < 3 || name.length() > 20){
+            nameEditText.setError("Name should be between 3-20 characters");
+            return false;
+        } else if (!name.matches("[a-zA-Z]+")){
+            nameEditText.setError("Enter only alphabetical characters");
+            return false;
+        }else {
+            return true;
         }
     }
+
+    public boolean isAddress(String address){
+        EditText addressEditText = (EditText)findViewById(R.id.hyobinAddress);
+        if (address.length() == 0){
+            addressEditText.setError("This Field Cannot Be Blank");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isPhoneNumber(String phoneNumber){
+        EditText phoneNumberEditText = (EditText)findViewById(R.id.hyobinPhoneNumber);
+        if(phoneNumber.length() == 0){
+            phoneNumberEditText.setError("This Field Cannot Be Blank");
+            return false;
+        } else if (phoneNumber.length() != 10){
+            phoneNumberEditText.setError("This Field should be 10 digits");
+            return false;
+        } else if (!phoneNumber.matches("^[0-9]*$")){
+            phoneNumberEditText.setError("This Field should be numbers only");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isCreditNumber(String creditCard){
+        EditText creditCardEditText = (EditText)findViewById(R.id.hyobinCreditCard);
+        if(creditCard.length() == 0){
+            creditCardEditText.setError("This Field Cannot Be Blank");
+            return false;
+        } else if (creditCard.length() != 16){
+            creditCardEditText.setError("Credit card is 16 digits");
+            return false;
+        } else if (!creditCard.matches("^[0-9]*$")){
+            creditCardEditText.setError("Credit card should be numbers only");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
 
 }

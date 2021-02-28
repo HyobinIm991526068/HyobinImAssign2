@@ -23,8 +23,6 @@ import java.util.ArrayList;
 
 public class ImActivity extends AppCompatActivity {
 
-    public static final String crust = "";
-    public static final String size = "";
     final Context context = this;
 
 
@@ -239,13 +237,13 @@ public class ImActivity extends AppCompatActivity {
             selectedRadioButton = findViewById(selectedRadioButtonCrustId);
             String selectedRbCrustText = selectedRadioButton.getText().toString();
 
-            intent.putExtra(crust, selectedRbCrustText);
-
             int selectedRadioButtonSizeId = radioGroupSize.getCheckedRadioButtonId();
             selectedRadioButton2 = findViewById(selectedRadioButtonSizeId);
             String selectedRbSizeText = selectedRadioButton2.getText().toString();
 
-            intent.putExtra(size, selectedRbSizeText);
+
+            intent.putExtra("crust", selectedRbCrustText);
+            intent.putExtra("size", selectedRbSizeText);
 
             intent.putExtra("toppings", toppings);
             startActivity(intent);
