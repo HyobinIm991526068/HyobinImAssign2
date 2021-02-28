@@ -24,5 +24,21 @@
     <string name="mushroom">Mushroom</string>
     <string name="bacon">Bacon</string>
     <string name="pineapple">Pineapple</string>
+    <string name="order_button">Order</string>
+    <string name="label_crust">Crust Type</string>
+    <string name="label_size">Size</string>
+    <string name="label_toppings">Toppings</string>
+    <string-array name="provinces">
+        <item>British Columbia</item>
+        <item>Alberta</item>
+        <item>Saskatchwan</item>
+        <item>Manitoba</item>
+        <item>Ontario</item>
+        <item>Quebec</item>
+        <item>Newfoundland</item>
+        <item>New Brunswick</item>
+        <item>Nova Scotia</item>
+        <item>Prince Edward Island</item>
+    </string-array>
 
 </resources>
