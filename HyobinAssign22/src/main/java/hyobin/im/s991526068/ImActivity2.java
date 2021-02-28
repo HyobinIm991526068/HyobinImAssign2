@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     Spinner spinnerProvince;
-    String[] provinces;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
         spinnerProvince.setAdapter(adapter);
         spinnerProvince.setOnItemSelectedListener(this);
 
+
     }
 
     @Override
@@ -65,6 +65,8 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
         EditText addressEditText = (EditText)findViewById(R.id.hyobinAddress);
         EditText phoneNumberEditText = (EditText)findViewById(R.id.hyobinPhoneNumber);
         EditText creditCardEditText = (EditText)findViewById(R.id.hyobinCreditCard);
+        TextView selectedTextView = (TextView)spinnerProvince.getSelectedView();
+        final String selected = selectedTextView.getText().toString();
         final String name = nameEditText.getText().toString();
         final String address = addressEditText.getText().toString();
         final String phoneNumber = phoneNumberEditText.getText().toString();
@@ -73,10 +75,16 @@ public class ImActivity2 extends AppCompatActivity implements AdapterView.OnItem
         if (isName(name) && isAddress(address) &&
                 isPhoneNumber(phoneNumber) && isCreditNumber(creditCard)){
             intent = new Intent(this, ImActivity3.class);
+
+            intent.putExtra("crust", getIntent().getStringExtra("crust"));
+            intent.putExtra("size", getIntent().getStringExtra("size"));
+            intent.putExtra("toppings", getIntent().getSerializableExtra("toppings"));
             intent.putExtra("name", name);
             intent.putExtra("address", address);
             intent.putExtra("phoneNumber", phoneNumber);
             intent.putExtra("creditCard", creditCard);
+            intent.putExtra("selectedProvince", selected);
+
             startActivity(intent);
         }
 

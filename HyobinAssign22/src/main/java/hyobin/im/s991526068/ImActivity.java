@@ -81,36 +81,33 @@ public class ImActivity extends AppCompatActivity {
         CheckBox cbPepperoni = (CheckBox) findViewById(R.id.hyobinPepperoni);
         CheckBox cbOlives = (CheckBox) findViewById(R.id.hyobinOlives);
         CheckBox cbPineapple = (CheckBox) findViewById(R.id.hyobinPineapple);
-        ArrayList<String> toppings = new ArrayList<String>();
+        ArrayList<String> selectedToppings = new ArrayList<String>();
 
         //check which toppings are selected and put into arraylist
 
         if (cbBacon.isChecked()) {
-            toppings.add("bacon");
+            selectedToppings.add("bacon");
         }
         if (cbCheese.isChecked()) {
-            toppings.add("extra cheese");
+            selectedToppings.add("extra cheese");
         }
         if (cbMushroom.isChecked()) {
-            toppings.add("mushroom");
+            selectedToppings.add("mushroom");
         }
         if (cbPepperoni.isChecked()) {
-            toppings.add("pepperoni");
+            selectedToppings.add("pepperoni");
         }
         if (cbOlives.isChecked()) {
-            toppings.add("olives");
+            selectedToppings.add("olives");
         }
         if (cbPineapple.isChecked()) {
-            toppings.add("pineapple");
+            selectedToppings.add("pineapple");
         }
-
-
-
 
         //checks to see if radiobuttons are selected and if toppings list is empty
         if (radioGroupCrust.getCheckedRadioButtonId() == -1 &&
                 radioGroupSize.getCheckedRadioButtonId() == -1 &&
-                (toppings.isEmpty())) {
+                (selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Please pick your crust type, pizza size and at least 1 topping");
             alertDialogBuilder
@@ -127,7 +124,7 @@ public class ImActivity extends AppCompatActivity {
 
             // show it
             alertDialog.show();
-        } else if (radioGroupSize.getCheckedRadioButtonId() == -1 && (toppings.isEmpty())) {
+        } else if (radioGroupSize.getCheckedRadioButtonId() == -1 && (selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Please pick your pizza size and at least 1 topping");
             alertDialogBuilder
@@ -144,7 +141,7 @@ public class ImActivity extends AppCompatActivity {
 
             // show it
             alertDialog.show();
-        } else if (radioGroupCrust.getCheckedRadioButtonId() == -1 && (toppings.isEmpty())) {
+        } else if (radioGroupCrust.getCheckedRadioButtonId() == -1 && (selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Please pick your crust type and at least 1 topping");
             alertDialogBuilder
@@ -214,7 +211,7 @@ public class ImActivity extends AppCompatActivity {
 
             // show it
             alertDialog.show();
-        } else if ((toppings.isEmpty())) {
+        } else if ((selectedToppings.isEmpty())) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
             alertDialogBuilder.setTitle("Please pick at least 1 topping");
             alertDialogBuilder
@@ -244,8 +241,7 @@ public class ImActivity extends AppCompatActivity {
 
             intent.putExtra("crust", selectedRbCrustText);
             intent.putExtra("size", selectedRbSizeText);
-
-            intent.putExtra("toppings", toppings);
+            intent.putExtra("toppings", selectedToppings);
             startActivity(intent);
         }
 
